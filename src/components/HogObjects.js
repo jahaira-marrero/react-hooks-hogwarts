@@ -31,17 +31,19 @@ const images = {
 }
 
 function HogObjects(props) {
-
-    function handleClick() {
-
-    }
+    const [showWeight, setShowWeight] = useState(false)
     
-    return (
-        <div onClick={handleClick} className="pigTile" id={props.id}>
-            <h2> {props.name} </h2>
-            <img src={images[props.name]} alt={props.name} />
+    function handleClick() {
+        setShowWeight(!showWeight)
         
-            <p>Weight:{props.weight}</p>
+        }
+
+    return (
+        <div className="pigTile" id={props.id}>
+            <button onClick={handleClick}>About Me </button>
+            <h2> {props.name} </h2>
+            <p showWeight={showWeight}></p>
+            <img src={images[props.name]} alt={props.name} />
         </div>
     );
 }
