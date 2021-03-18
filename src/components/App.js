@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import HogCards from "./HogCards";
 
-import hogs from "../porkers_data";
+// import hogs from "../porkers_data";
 
 
 function App() {

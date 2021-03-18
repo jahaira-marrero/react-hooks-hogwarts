@@ -11,8 +11,10 @@ import piglet from "../assets/piglet.jpg";
 import porkchop from "../assets/porkchop.jpg";
 import trouble from "../assets/trouble.jpg";
 import truffle_shuffle from "../assets/truffle_shuffle.jpg";
+// import hogs from "../porkers_data";
 
-import HogCards from "./HogCards";
+
+
 
 const images = {
     Babe: babe,
@@ -31,18 +33,26 @@ const images = {
 }
 
 function HogObjects(props) {
-    const [showWeight, setShowWeight] = useState(false)
+    const [isHidden, setIsHidden] = useState(true)
     
+    function AboutMe() {
+      
+        return(<section>
+            <p>Specialty: {props.specialty}</p>
+            <p>Weight: {props.weight}lbs</p>
+            <p>Highest Medal: {props.medal}</p>
+            <p>Am I greased? {props.greased ? "Grease, grease, baby!" : "No grease over here!"}</p>
+        </section>)
+    }
     function handleClick() {
-        setShowWeight(!showWeight)
-        
+        setIsHidden(!isHidden);
         }
 
     return (
         <div className="pigTile" id={props.id}>
-            <button onClick={handleClick}>About Me </button>
-            <h2> {props.name} </h2>
-            <p showWeight={showWeight}></p>
+             <h2> {props.name} </h2>
+            <button onClick={handleClick}>{isHidden ? "About Me" : "Show Less"}</button>
+            {isHidden ? null : AboutMe()}
             <img src={images[props.name]} alt={props.name} />
         </div>
     );
