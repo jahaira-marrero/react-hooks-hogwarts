@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import augustus_gloop from "../assets/augustus_gloop.jpg";
 import babe from "../assets/babe.jpg";
 import bailey from "../assets/bailey.jpg";
@@ -30,13 +30,18 @@ const images = {
        
 }
 
-function HogObjects({id, name, weight}) {
-  
+function HogObjects(props) {
 
+    function handleClick() {
+
+    }
+    
     return (
-        <div className="pigTile" id={id}>
-            <h3> {name} </h3>
-            <p>Weight:{weight}</p>
+        <div onClick={handleClick} className="pigTile" id={props.id}>
+            <h2> {props.name} </h2>
+            <img src={images[props.name]} alt={props.name} />
+        
+            <p>Weight:{props.weight}</p>
         </div>
     );
 }
